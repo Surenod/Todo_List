@@ -1,0 +1,146 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  background-image: linear-gradient(to right, #47ABFF, #1C23AF);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+.header {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 50px;
+  color: white;
+  margin: 20px 0px 100px 0px;
+}
+
+.todo__form {
+  min-width: 700px;
+  height: 50px;
+  padding: 20px 40px;
+  border-radius: 50px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.todo__input {
+  width: 100%;
+  border: none;
+  outline: none;
+  color: #47ABFF;
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: 2px;
+}
+
+::placeholder {
+  color: #1C23AF;
+  opacity: 0.5;
+}
+
+.input__btn,
+.list__btn {
+  background: #1C23AF;
+  border: none;
+  font-size: large;
+  color: white;
+  border-radius: 30px;
+  padding: 5px 7px;
+  width: 100px;
+  cursor: pointer;
+}
+.list__btn{
+  background: #47ABFF;
+  width: 80px;
+  margin-left: 20px;
+}
+.todo__list {
+  list-style: none;
+}
+
+.list__element {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 200px;
+  padding: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  background: #1C23AF;
+  border-radius: 50px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+/* Customize the label (the container) */
+.checkbox__container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  user-select: none;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: -4px;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #eee;
+  border-radius: 50px;
+}
+
+/* Hide the browser's default checkbox */
+.checkbox__container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* On mouse-over, add a grey background color */
+.checkbox__container:hover input ~ .checkmark {
+  background-color: white;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkbox__container input:checked ~ .checkmark {
+  background-color: #47ABFF;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  flex-grow: 0;
+  margin-right: 0.5em;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 50% 50%;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.checkbox__container input:checked ~ .checkmark:after {
+  display: block;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+}
